@@ -241,7 +241,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 128115812}, m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp, m_MethodName: ToLvl, m_Mode: 3, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 1, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
+      - {m_Target: {fileID: 128115812}, m_TargetAssemblyTypeName: ChangeScene, m_MethodName: , m_Mode: 0, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: , m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
     m_CallsDirty: 1
 --- !u!114 &128115814
 MonoBehaviour:
@@ -703,14 +703,14 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 975404454}
   m_GroupsAllowInteraction: 1
-  m_CurrentIndex: 0
+  m_CurrentIndex: 1
   <isPointerInside>k__BackingField: 0
   <isPointerDown>k__BackingField: 0
   <hasSelection>k__BackingField: 0
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 975404456}, m_TargetAssemblyTypeName: quitGame, Assembly-CSharp, m_MethodName: QuitGame, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 3, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
+      - {m_Target: {fileID: 975404456}, m_TargetAssemblyTypeName: quitGame, m_MethodName: , m_Mode: 0, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: , m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
     m_CallsDirty: 1
 --- !u!114 &975404454
 MonoBehaviour:
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 2122524152}, m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp, m_MethodName: ToLvl, m_Mode: 3, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 2, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
+      - {m_Target: {fileID: 2122524152}, m_TargetAssemblyTypeName: ChangeScene, m_MethodName: , m_Mode: 0, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: , m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
     m_CallsDirty: 1
 --- !u!114 &2122524150
 MonoBehaviour:
