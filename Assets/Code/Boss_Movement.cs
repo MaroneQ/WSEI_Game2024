@@ -10,14 +10,5 @@ public class Boss_Movement : MonoBehaviour
     public Transform current_point;
     
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
