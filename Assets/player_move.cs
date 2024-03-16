@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
 
 
 public class player_move : MonoBehaviour
@@ -10,6 +13,8 @@ public class player_move : MonoBehaviour
     public float speed;
     public float czas = 10f; // Pocz¹tkowa wartoœæ czasu
     public Text czasText; // Pole tekstowe do wyœwietlania czasu
+    
+   
 
     void Start()
     {
@@ -21,6 +26,8 @@ public class player_move : MonoBehaviour
 
         // Wywo³aj metodê zmniejszaj¹c¹ czas co sekundê, rozpoczynaj¹c od razu, z wywo³aniem co sekundê
         InvokeRepeating("ZmniejszCzas", 0f, 1f);
+
+        InvokeRepeating("RotateClocks", 0f, 0.05f);
     }
 
     void FixedUpdate()
@@ -51,26 +58,53 @@ public class player_move : MonoBehaviour
             
         }
     }
+    void RotateClocks()
+    {
+        // Find all GameObjects with the tag "CLOCK"
+        GameObject[] clocks = GameObject.FindGameObjectsWithTag("clock");
 
+        // Rotate each clock object
+        foreach (GameObject clock in clocks)
+        {
+            clock.transform.Rotate(Vector3.forward * 6f);
+            clock.transform.Rotate(Vector3.up * 6f);
+        }
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Boss")) // SprawdŸ, czy kolizja nast¹pi³a z obiektem o tagu "Boss"
+        if (collision.gameObject.CompareTag("clock")) // Check if collision is with an object tagged as "CLOCK"
         {
-            // Zmniejsz czas o 1
-            czas -= 10;
+            // Increase czas by 10
+            czas += 10;
 
-            // Aktualizuj tekst w polu tekstowym
-            czasText.text = "CZAS: " + czas.ToString();
+            // Destroy the clock object
+            Destroy(collision.gameObject);
 
+            // Update the text in czasText
+            
+        }
+
+
+        
     
-
-            // Jeœli czas osi¹gn¹³ 0, zatrzymaj odliczanie
-            if (czas <= 0)
+            else if (collision.gameObject.CompareTag("Boss")) // SprawdŸ, czy kolizja nast¹pi³a z obiektem o tagu "Boss"
             {
-                CancelInvoke("ZmniejszCzas");
-                //zmiana sceny na menu i od nowa
-                
+                // Zmniejsz czas o 1
+                czas -= 10;
+
+                // Aktualizuj tekst w polu tekstowym
+                czasText.text = "CZAS: " + czas.ToString();
+
+
+
+                // Jeœli czas osi¹gn¹³ 0, zatrzymaj odliczanie
+                if (czas <= 0)
+                {
+                    CancelInvoke("ZmniejszCzas");
+                SceneManager.LoadScene(0);
+
             }
+            
         }
     }
 }
