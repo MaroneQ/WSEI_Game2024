@@ -8,10 +8,11 @@ public class minotaur_move : MonoBehaviour
     public float turnRadius = 1f; // Promieñ skrêtu bossa
     public float obstacleDetectionDistance = 1f; // Odleg³oœæ detekcji przeszkód
     public LayerMask obstacleLayer; // Warstwa przeszkód
+    public LayerMask minotaurLayer; // Warstwa zawieraj¹ca minotaurów
 
     private Vector2 currentDirection; // Aktualny kierunek bossa
-
     private CapsuleCollider2D turnCollider; // Collider reprezentuj¹cy promieñ skrêtu
+
 
     void Start()
     {
@@ -39,8 +40,21 @@ public class minotaur_move : MonoBehaviour
 
         if (hit.collider != null)
         {
-            // Jeœli napotkano przeszkodê w pobli¿u, zmieñ kierunek na losowy
-            currentDirection = Random.insideUnitCircle.normalized;
+            if (hit.collider.CompareTag("boss"))
+            {
+                // Odbicie od przeszkody z tagiem "boss"
+                currentDirection = Vector2.Reflect(currentDirection, -hit.normal);
+            }
+            else if (hit.collider.CompareTag("Boss"))
+            {
+                // Odbicie od przeszkody z tagiem "minotaur"
+                currentDirection = Vector2.Reflect(currentDirection, -hit.normal);
+            }
+            else
+            {
+                // Jeœli napotkano inn¹ przeszkodê, zmieñ kierunek na losowy
+                currentDirection = Random.insideUnitCircle.normalized;
+            }
         }
         else
         {
